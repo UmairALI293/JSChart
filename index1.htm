@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>Document</title>
+  <style>
+    body {
+      display: flex;
+      
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .chart-container {
+      width: 40%;
+      margin-bottom: 30px;
+      margin-left: 25px;
+
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+  
+    <div class="chart-container">
+      <canvas id="barChart"></canvas>
+    </div>
+    <div class="chart-container">
+      <canvas id="lineChart"></canvas>
+    </div>
+    <div class="chart-container">
+      <canvas id="pieChart"></canvas>
+    </div>
+    <div class="chart-container">
+      <canvas id="doughnut"></canvas>
+    </div>
+    <div class="chart-container">
+      <canvas id="polarArea"></canvas>
+    </div>
+    <div class="chart-container">
+      <canvas id="radar"></canvas>
+    </div>
+</body>
+</html>
+<script>
+  const data = {
+    labels: ['Hot', 'Sunny', 'Thunder', 'Rainy', 'Cold'],
+    datasets: [{
+      label: 'City Temperature',
+      data: [46, 38, 30, 20, 15],
+      backgroundColor: ['red', 'yellow', 'gray', '#43A6C6', '#ADD8E6'],
+      borderWidth: 1,
+      borderColor: '#777',
+      hoverBorderWidth: 3,
+      hoverBorderColor: '#000'
+    }]
+  };
+
+  const barConfig = {
+    type: 'bar',
+    data: data,
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: 'City Temperature - Bar Chart',
+          font: {
+            size: 25,
+            style: "italic"
+          }
+        },
+        legend: {
+          display: false,
+        },
+        layout: {
+          padding: {
+            left: 20,
+            right: 0,
+            top: 0,
+            bottom: 0
+          }
+        }
+      }
+    }
+  };
+
+  const lineConfig = {
+    type: 'line',
+    data: data,
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: 'City Temperature - Line Chart',
+          font: {
+            size: 25,
+            style: "italic"
+          }
+        },
+        legend: {
+          display: false,
+        },
+        layout: {
+          padding: {
+            left: 20,
+            right: 0,
+            top: 0,
+            bottom: 0
+          }
+        }
+      }
+    }
+  };
+
+  const doughnutConfig = {
+    type: 'doughnut',
+    data: data,
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: 'City Temperature - Pie Chart',
+          font: {
+            size: 25,
+            style: "italic"
+          }
+        },
+        legend: {
+          display: true,
+          position: 'top',
+        }
+      }
+    }
+  };
+  const pieConfig = {
+    type: 'pie',
+    data: data,
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: 'City Temperature - Pie Chart',
+          font: {
+            size: 25,
+            style: "italic"
+          }
+        },
+        legend: {
+          display: true,
+          position: 'top',
+        }
+      }
+    }
+  };
+
+
+  new Chart(document.getElementById('barChart'), barConfig);
+  new Chart(document.getElementById('lineChart'), lineConfig);
+  new Chart(document.getElementById('pieChart'), pieConfig);
+</script>
