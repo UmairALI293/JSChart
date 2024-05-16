@@ -9,21 +9,21 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <title>Document</title>
   <style>
-    body {
+    /* body {
       display: flex;
       
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
-    }
+    } */
 
     .chart-container {
       width: 40%;
       margin-bottom: 30px;
       margin-left: 25px;
 
-      display: flex;
+      /* display: flex; */
     }
   </style>
 </head>
@@ -161,8 +161,53 @@
     }
   };
 
+  const polarAreaConfig = {
+    type: 'polarArea',
+    data: data,
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: 'City Temperature - Pie Chart',
+          font: {
+            size: 25,
+            style: "italic"
+          }
+        },
+        legend: {
+          display: true,
+          position: 'top',
+        }
+      }
+    }
+  };
+  const radarConfig = {
+    type: 'radar',
+    data: data,
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: 'City Temperature - Pie Chart',
+          font: {
+            size: 25,
+            style: "italic"
+          }
+        },
+        legend: {
+          display: true,
+          position: 'top',
+        }
+      }
+    }
+  };
 
   new Chart(document.getElementById('barChart'), barConfig);
   new Chart(document.getElementById('lineChart'), lineConfig);
+  new Chart(document.getElementById('doughnut'), doughnutConfig);
   new Chart(document.getElementById('pieChart'), pieConfig);
+  new Chart(document.getElementById('radar'), radarConfig);
+  new Chart(document.getElementById('polarArea'), polarAreaConfig);
+ 
+ 
 </script>
